@@ -8,7 +8,6 @@ import java.util.List;
  *
  * @author Jason
  */
-
 public class BookServiceImpl implements BookService
 {
 
