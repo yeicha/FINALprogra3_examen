@@ -80,10 +80,16 @@ public class BookWebservice
     @Produces(MediaType.APPLICATION_JSON)
     public float getTotalPrice()
     {
+        float aux = 0;
+
         bookDAO = new BookDAOImpl();
         bookService = new BookServiceImpl(bookDAO);
 
-        return bookService.totalPriceAll();
-
+        List<Book> books = bookService.findAll();
+        for (int i = 0; books.size() > 0; i++)
+        {
+            aux += books.get(i).getPrice();
+        }
+        return aux;
     }
 }

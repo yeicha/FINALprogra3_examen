@@ -25,7 +25,13 @@ public class BookServiceImpl implements BookService
     @Override
     public float totalPriceAll()
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        float aux = 0;
+        List<Book> books = bookDAO.findAll();
+        for (int i = 0; books.size() > 0; i++)
+        {
+            aux += books.get(i).getPrice();
+        }
+        return aux;
     }
 
     @Override
