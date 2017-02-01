@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-02-2017 a las 01:26:34
+-- Tiempo de generación: 01-02-2017 a las 15:13:54
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -31,6 +31,14 @@ CREATE TABLE `author` (
   `name` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `author`
+--
+
+INSERT INTO `author` (`idAuthor`, `name`) VALUES
+(2, 'Jason'),
+(3, 'Luis');
+
 -- --------------------------------------------------------
 
 --
@@ -43,6 +51,14 @@ CREATE TABLE `authorcontact` (
   `contact` text NOT NULL,
   `type` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `authorcontact`
+--
+
+INSERT INTO `authorcontact` (`idAuthorContact`, `idAuthor`, `contact`, `type`) VALUES
+(2, 1, 'jbjs@gmail.com', 'personal'),
+(3, 2, 'oper@gamil.com', 'trabajo');
 
 -- --------------------------------------------------------
 
@@ -59,6 +75,14 @@ CREATE TABLE `book` (
   `price` float NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `book`
+--
+
+INSERT INTO `book` (`idBook`, `idAuthor`, `idType`, `name`, `dateRelease`, `price`) VALUES
+(2, 1, 2, 'Ciclimo Toca Fondo', '2017-02-18', 1000),
+(3, 2, 3, 'CocinaPostre', '2016-07-05', 1000);
+
 -- --------------------------------------------------------
 
 --
@@ -69,6 +93,14 @@ CREATE TABLE `booktype` (
   `idType` int(11) NOT NULL,
   `type` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `booktype`
+--
+
+INSERT INTO `booktype` (`idType`, `type`) VALUES
+(2, 'deporte'),
+(3, 'cocina');
 
 --
 -- Índices para tablas volcadas
@@ -106,22 +138,22 @@ ALTER TABLE `booktype`
 -- AUTO_INCREMENT de la tabla `author`
 --
 ALTER TABLE `author`
-  MODIFY `idAuthor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idAuthor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `authorcontact`
 --
 ALTER TABLE `authorcontact`
-  MODIFY `idAuthorContact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idAuthorContact` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `book`
 --
 ALTER TABLE `book`
-  MODIFY `idBook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idBook` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT de la tabla `booktype`
 --
 ALTER TABLE `booktype`
-  MODIFY `idType` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idType` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
