@@ -29,8 +29,8 @@ public class BookTypeDAOImpl implements BookTypeDAO
     public BookType findByName(String name)
     {
         BookType bookType = null;
-        Query query = session.createQuery("from BookType where name = :name ");
-        query.setParameter("name", name);
+        Query query = session.createQuery("from BookType where type = :name ");
+        query.setParameter("type", name);
 
         if (query.list().size() > 0)
         {
